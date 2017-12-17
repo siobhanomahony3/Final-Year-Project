@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/"> <!-- removes the hash simple from angular endpoints-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Main Angular Files -->
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+    <!-- Angular Config/Routes -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <!--&lt;!&ndash; Angular Controllers &ndash;&gt;-->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/recipescontroller.js"></script>
+    <script src="app/controllers/addrecipecontroller.js"></script>
+
+    <!--&lt;!&ndash; Angular Services &ndash;&gt;-->
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+
+    <title>Recipe Generator</title>
+
+</head>
+
+<body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+
+<nav class="navbar navbar-inverse navbar fixed-top">
+    <div class ="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="#navbar" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="'navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a ng-show ="main.isLoggedIn" href="/profile"> Welcome back, {{main.username}} </a> </li>
+
+                <li class ="active"><a href="/">Home</a></li>
+                <li><a ng-show ="main.isLoggedIn" href="/recipes"> Recipes</a></li>
+                <li><a ng-show ="main.isLoggedIn" href="/addrecipe"> Add Recipe</a></li>
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-show ="!main.isLoggedIn" href="/login">Login</a></li>
+                <li><a ng-show ="!main.isLoggedIn" href="/register">Register</a></li>
+                <li><a ng-show ="main.isLoggedIn" href="#" ng-click="main.logout()">Log Out</a></li>
+            </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class ="container theme-showcase" role="main">
+
+    <div class="jumbotron">
+        <h1>Welcome to Recipe Gen</h1>
+        <p></p>
+    </div>
+
+    <div ng-view></div>
+</div>
+
+<!-- BootstrapJS Modal -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+</body>
+
+</html>
