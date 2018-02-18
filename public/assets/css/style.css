@@ -1,0 +1,306 @@
+main 					{
+    padding-top:30px;
+}
+
+/* HEADER 
+===================== */
+header .navbar 		{
+    border-radius:0;
+}
+
+
+.reset{
+    float: right;
+}
+
+
+/* NGANIMATE
+====================== */
+
+/* show and hide */
+.show-hide-message.ng-hide-remove {
+    -webkit-animation:zoomIn 0.3s both ease;
+    -moz-animation:zoomIn 0.3s both ease;
+    animation:zoomIn 0.3s both ease;
+}
+
+/* ANIMATIONS
+====================== */
+.spinner {
+    -webkit-animation:spin 1s infinite;
+    -moz-animation:spin 1s infinite;
+    animation:spin 1s infinite;
+}
+
+@keyframes spin {
+    from 	{ transform:rotate(0deg); }
+    to 	{ transform:rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+    from 	{ -webkit-transform:rotate(0deg); }
+    to 	{ -webkit-transform:rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+    from 	{ -moz-transform:rotate(0deg); }
+    to 	{ -moz-transform:rotate(360deg); }
+}
+
+
+ #rec {
+     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+ }
+
+#rec td, #rec th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#rec tr:nth-child(even){background-color: #f2f2f2;}
+
+#rec tr:hover {background-color: #ddd;}
+
+#rec th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+body {
+    background-color: lightblue;
+}
+
+body {margin:0;}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*.fa {*/
+    /*padding: 20px;*/
+    /*font-size: 40px;*/
+    /*width: 90px;*/
+    /*height: 50px;*/
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+    /*display: inline-block;*/
+    /*margin: 8px 2px;*/
+/*}*/
+.fa-facebook {
+    padding: 20px 40px;
+    border-color: #FF6347;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #FF6347;
+}
+
+
+/* Twitter */
+.fa-twitter {
+    padding: 20px 40px;
+    border-color: #00FF7F;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #00FF7F;
+}
+
+.fa-google {
+    padding: 20px 40px;
+    border-color: #4682B4;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #4682B4;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 30%;
+    border-radius: 50%;
+}
+
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f1f1;
+    padding: 20px;
+    font-family: Arial;
+}
+
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 50px;
+    word-break: break-all;
+}
+
+.row {
+    margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+}
+
+/* Clear floats after rows */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Content */
+.content {
+    background-color: white;
+    padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+.icon {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative;
+}
+
+.icon:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
+}
+
+.icon > .label {
+    display: none;
+}
+
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.icons li {
+    display: inline-block;
+    padding: 0 1rem 0 0;
+}
+
+ul.icons li:last-child {
+    padding-right: 0;
+}
+
+ul.icons li .icon:before {
+    font-size: 2rem;
+}
+
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+
+
+}
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}

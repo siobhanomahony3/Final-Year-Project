@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/"> <!-- removes the hash simple from angular endpoints-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Main Angular Files -->
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+    <!-- Angular Config/Routes -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <!--&lt;!&ndash; Angular Controllers &ndash;&gt;-->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/recipescontroller.js"></script>
+    <script src="app/controllers/addrecipecontroller.js"></script>
+    <script src="app/controllers/emailCtrl.js"></script>
+
+    <!--&lt;!&ndash; Angular Services &ndash;&gt;-->
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/one-page-wonder.min.css">
+
+
+
+    <title>Recipe Generator</title>
+
+</head>
+
+<body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+        <ul class="navbar-nav ml-auto">
+        <li class ="active"><a href="/">Home</a></li>
+        <li><a ng-show ="main.isLoggedIn" href="/recipe"> Recipe</a></li>
+        <li><a ng-show ="main.isLoggedIn" href="/addrecipe"> Add Recipe</a></li>
+        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ng-show ="!main.isLoggedIn" href="/login">Log In</a>
+                </li>
+                <li><a class="nav-link" ng-show ="main.isLoggedIn" href="#" ng-click="main.logout()">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--<div class ="container theme-showcase" role="main">-->
+
+    <!--<div class="jumbotron">-->
+        <!--<h1>Welcome to Recipe Gen</h1>-->
+        <!--<p></p>-->
+    <!--</div>-->
+
+    <div ng-view></div>
+</div>
+<br>
+<br>
+<!-- Footer -->
+<footer class="py-5 bg-black">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon fa-google"><span class="label">Google</span></a></li>
+        </ul>
+    </div>
+    <!-- /.container -->
+</footer>
+
+
+<!-- BootstrapJS Modal -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+
+</body>
+
+</html>
