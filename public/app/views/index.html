@@ -31,7 +31,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/one-page-wonder.min.css">
@@ -42,31 +42,53 @@
 
 </head>
 
-<body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+<body class="is-preload" ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
 
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-    <div class="container">
-        <ul class="navbar-nav ml-auto">
-        <li class ="active"><a href="/">Home</a></li>
-        <li><a ng-show ="main.isLoggedIn" href="/recipe"> Recipe</a></li>
-        <li><a ng-show ="main.isLoggedIn" href="/addrecipe"> Add Recipe</a></li>
-        </ul>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" ng-show ="!main.isLoggedIn" href="/login">Log In</a>
-                </li>
-                <li><a class="nav-link" ng-show ="main.isLoggedIn" href="#" ng-click="main.logout()">Log Out</a></li>
-            </ul>
-        </div>
-    </div>
+<!--<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">-->
+    <!--<div class="container">-->
+        <!--<ul class="navbar-nav ml-auto">-->
+        <!--<li class ="active"><a href="/">Home</a></li>-->
+        <!--<li><a ng-show ="main.isLoggedIn" href="/recipe"> Recipe</a></li>-->
+        <!--<li><a ng-show ="main.isLoggedIn" href="/addrecipe"> Add Recipe</a></li>-->
+        <!--</ul>-->
+        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
+            <!--<span class="navbar-toggler-icon"></span>-->
+        <!--</button>-->
+        <!--<div class="collapse navbar-collapse" id="navbarResponsive">-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="/register">Sign Up</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" ng-show ="!main.isLoggedIn" href="/login">Log In</a>-->
+                <!--</li>-->
+                <!--<li><a class="nav-link" ng-show ="main.isLoggedIn" href="#" ng-click="main.logout()">Log Out</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
+<!-- Header -->
+<header id="header">
+    <a class="logo" href="index.html">Industrious</a>
+    <center>
+    <img src="images/cookz.png" width="90" height="90" alt="">
+    </center>
+    <nav>
+        <a href="#menu">Menu</a>
+    </nav>
+</header>
+
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="/register">Sign Up</a></li>
+        <li><a href="elements.html">Elements</a></li>
+        <li><a href="generic.html">Generic</a></li>
+    </ul>
 </nav>
+
+
 
 <!--<div class ="container theme-showcase" role="main">-->
 
@@ -80,27 +102,44 @@
 <br>
 <br>
 <!-- Footer -->
-<footer class="py-5 bg-black">
-    <div class="container">
-        <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-google"><span class="label">Google</span></a></li>
-        </ul>
+<footer id="footer">
+    <div class="inner">
+        <div class="content">
+            <section>
+                <h3>Accumsan montes viverra</h3>
+                <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+            </section>
+            <section>
+                <h4>Sem turpis amet semper</h4>
+                <ul class="alt">
+                    <li><a href="#">Dolor pulvinar sed etiam.</a></li>
+                    <li><a href="#">Etiam vel lorem sed amet.</a></li>
+                    <li><a href="#">Felis enim feugiat viverra.</a></li>
+                    <li><a href="#">Dolor pulvinar magna etiam.</a></li>
+                </ul>
+            </section>
+            <section>
+                <h4>Magna sed ipsum</h4>
+                <ul class="plain">
+                    <li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+                    <li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+                    <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+                    <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="copyright">
+            &copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
+        </div>
     </div>
-    <!-- /.container -->
 </footer>
 
-
-<!-- BootstrapJS Modal -->
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.js"></script>
-
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 
 </html>
