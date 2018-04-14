@@ -5,12 +5,7 @@ var session = require('express-session')
 var jwt = require('jsonwebtoken')
 var secret = 'siobhan0303';
 
-
-
-
-
 module.exports =function (passport,  FacebookStrategy, TwitterStrategy, GoogleStrategy, app) {
-
 
     // Start Passport Configuration Settings
     app.use(passport.initialize());

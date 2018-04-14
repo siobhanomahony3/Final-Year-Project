@@ -4,11 +4,11 @@ var bcrypt = require('bcrypt-nodejs')
 
 // User Mongoose Schema
 var UserSchema = new Schema({
-
+    name: { type: String, required: true},
     username: { type: String, lowercase: true, required: true, unique: true },
     password: { type: String, required: true},
     email: { type: String, required: true, lowercase: true, unique: true},
-    isAdmin: {type: Boolean, default: false}
+    isAdmin:{type: Boolean, default: false}
 });
 
 // Middleware to ensure password is encrypted before saving user to database

@@ -1,7 +1,8 @@
-var User = require('../models/user')
+var User = require('../models/user');
 var recipe = require('../models/recipe');
-var jwt = require('jsonwebtoken')
+var jwt = require('jsonwebtoken');
 var secret = 'siobhan0303';
+var passport = require('passport');
 
 
 
@@ -11,13 +12,16 @@ module.exports =  function(router){
     app.token = jwt;
 
     router.post('/users', function (req, res) {
-    var user = new User();
-    user.username = req.body.username
-    user.password = req.body.password
-    user.email = req.body.email
+            var user = new User();
+            if (req.body.adminCode === 'secretcode123'){
+                user.isAdmin = true;
+            }
+        user.name = req.body.name
+            user.username = req.body.username
+            user.password = req.body.password
+            user.email = req.body.email
 
-
-    if (req.body.username == null || req.body.username =='' || req.body.password == null || req.body.password =='' || req.body.email == null || req.body.email ==''){
+    if (req.body.name == null || req.body.name =='' ||req.body.username == null || req.body.username =='' || req.body.password == null || req.body.password =='' || req.body.email == null || req.body.email ==''){
         res.json({
             success:false,
             message:'Ensure nothing is left empty'
@@ -38,6 +42,16 @@ module.exports =  function(router){
 
     })
 
+
+    router.get('/profile', isLoggedIn,  function (req, res){
+        recipe.find({User: req.User}, function(err, recipe){
+           if (err){
+               return res.write('Error');
+           }
+
+        });
+       res.render('user/profile');
+    });
 
     router.post('/authenticate', function (req, res) {
         // res.send('testing new route')

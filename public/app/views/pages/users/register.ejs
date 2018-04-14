@@ -69,7 +69,6 @@
         </ul>
     </div>
     <br>
-    <br>
     <div ng-class="{ 'has-success':confirmed && !regForm.confirmPassword.$error.required, 'has-error':(!confirmed && !regForm.confirmPassword.$error.required) || (regForm.confirmPassword.$error.required && !regForm.confirmPassword.$pristine) || (regForm.$submitted && regForm.confirmPassword.$error.required) }">
         <label>Confirm Password:</label>
         <input class="form-control" type="password" name="confirmPassword", placeholder="please enter password address"match="{{[firstPassword]}} " ng-change="register.regData.password = confirm" ng-model="confirm"required>
@@ -77,10 +76,11 @@
         <p class="help-block" ng-show="!confirmed && !regForm.confirmPassword.$pristine && regForm.firstPassword.$valid">Passwords do not match</p>
     </div>
 
-    <div class="form-group">
-        <label>Admin Code</label>
-        <input class="form-control" type="text" name="adminCode", placeholder="Admin Code">
-    </div>
+   <br>
+<div class="form-group">
+    <label>Admin Code:</label>
+    <input class="form-control" type="text" name="adminCode" placeholder="Admin Code">
+</div>
     <br>
 
 

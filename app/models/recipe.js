@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var RecipeSchema = new mongoose.Schema({
-    recipename: String,
-    recipetype: String,
-    ingredients: String,
+var RecipeSchema = new Schema({
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    recipename: {type: String},
+    recipetype: {type: String},
+    ingredients: {type: String},
     rating: {type: Number, default: 0}
 });
 
