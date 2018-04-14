@@ -1,8 +1,10 @@
 var recipe = require('../models/recipe');
+var User = require('../models/user');
 var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
+var result = require("mongoose");
 
 
 mongoose.connect('mongodb://localhost:27017/recipes');
@@ -92,6 +94,7 @@ router.addRecipe = function(req, res) {
     recipes.recipetype = req.body.recipetype;
     recipes.ingredients = req.body.ingredients;
     recipes.rating = req.body.rating;
+
 
     console.log('Adding Recipe: ' + JSON.stringify(recipes));
 

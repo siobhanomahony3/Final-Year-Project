@@ -52,6 +52,13 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
         })
+        .when('/camera',{
+
+            templateUrl: 'app/views/pages/recipes/camera.ejs',
+            authenticated: true
+
+        })
+
         .when('/profile',{
 
             templateUrl: 'app/views/pages/users/profile.ejs',

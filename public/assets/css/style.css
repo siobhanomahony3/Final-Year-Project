@@ -111,43 +111,43 @@ body {margin:0;}
     /*display: inline-block;*/
     /*margin: 8px 2px;*/
 /*}*/
-.fa-facebook {
-    padding: 20px 40px;
-    border-color: #FF6347;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #FF6347;
-}
+/*.fa-facebook {*/
+    /*padding: 20px 40px;*/
+    /*border-color: #FF6347;*/
+    /*border-radius: 3px;*/
+    /*text-transform: uppercase;*/
+    /*font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*font-size: 18px;*/
+    /*font-weight: 700;*/
+    /*color: #fff;*/
+    /*background-color: #FF6347;*/
+/*}*/
 
 
-/* Twitter */
-.fa-twitter {
-    padding: 20px 40px;
-    border-color: #00FF7F;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #00FF7F;
-}
+/*!* Twitter *!*/
+/*.fa-twitter {*/
+    /*padding: 20px 40px;*/
+    /*border-color: #00FF7F;*/
+    /*border-radius: 3px;*/
+    /*text-transform: uppercase;*/
+    /*font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*font-size: 18px;*/
+    /*font-weight: 700;*/
+    /*color: #fff;*/
+    /*background-color: #00FF7F;*/
+/*}*/
 
-.fa-google {
-    padding: 20px 40px;
-    border-color: #4682B4;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #4682B4;
-}
+/*.fa-google {*/
+    /*padding: 20px 40px;*/
+    /*border-color: #4682B4;*/
+    /*border-radius: 3px;*/
+    /*text-transform: uppercase;*/
+    /*font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*font-size: 18px;*/
+    /*font-weight: 700;*/
+    /*color: #fff;*/
+    /*background-color: #4682B4;*/
+/*}*/
 
 .button {
     background-color: #4CAF50;
@@ -225,10 +225,10 @@ h1 {
 }
 
 /* Content */
-.content {
-    background-color: white;
-    padding: 10px;
-}
+/*.content {*/
+    /*background-color: white;*/
+    /*padding: 10px;*/
+/*}*/
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media (max-width: 900px) {
@@ -304,3 +304,43 @@ span.psw {
         width: 100%;
     }
 }
+
+
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+    background-color: #111;
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+    background-color: red;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered iframe {
+
+
+}
+

@@ -28,7 +28,6 @@ app.use('/api', appRoutes);// defining backend routes to differentiate from fron
 
 
 
-
 app.get('/recipe', recipe.findAll);
 app.get('/recipe/:id', recipe.findOne);
 app.post('/addrecipe', recipe.addRecipe);

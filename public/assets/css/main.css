@@ -247,8 +247,7 @@ hr {
   max-width: calc(100% - 6rem); }
   @media screen and (max-width: 480px) {
     .inner {
-      max-width: calc(100% - 3rem);
-    height: auto} }
+      max-width: calc(100% - 3rem); } }
 
 /* Button */
 input[type="submit"],
@@ -2069,8 +2068,7 @@ ul.icons {
   position: relative;
   text-align: center;
   height: auto;
-  z-index: 1;
-  width: 100%}
+  z-index: 1; }
   #cta input, #cta select, #cta textarea {
     color: #ffffff; }
   #cta a {
@@ -2508,7 +2506,7 @@ body {
   background-size: cover;
   border-top: 0;
   display: -ms-flexbox;
-  height: auto!important;
+  height: 15rem !important;
   min-height: 15rem;
   overflow: hidden;
   position: relative;
@@ -2823,3 +2821,15 @@ body.is-menu-visible #menu {
   transform: translateX(0);
   box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
   visibility: visible; }
+/* Split the screen in half */
+.split {
+  height: 50%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+

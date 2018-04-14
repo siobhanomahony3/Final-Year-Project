@@ -1,92 +1,214 @@
-<section>
+<!--<section>-->
 
-<br>
-    <br>
-    <br>
-    <br>
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
 
-</section><header>
-<div class="page-header">
-    <h1>User Login</h1>
-</div>
-</header>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--</section><header>-->
+<!--<div class="page-header">-->
+<!--<h1>User Login</h1>-->
+<!--</div>-->
+<!--</header>-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 
-<form ng-submit="main.doLogin(loginData)">
+<!--<form ng-submit="main.doLogin(loginData)">-->
 
-<center>
-        <div class="imgcontainer">
-            <img src="./images/people.png" alt="Avatar" class="avatar">
-        </div>
-</center>
-    <div class="container">
-    <label>Username:</label>
-    <input class="form-control"  type="text" name="username" placeholder="please enter username" ng-model="main.loginData.username">
-    <br>
+<!--<center>-->
+<!--<div class="imgcontainer">-->
+<!--<img src="./images/people.png" alt="Avatar" class="avatar">-->
+<!--</div>-->
+<!--</center>-->
+<!--<div class="container">-->
+<!--<label>Username:</label>-->
+<!--<input class="form-control"  type="text" name="username" placeholder="please enter username" ng-model="main.loginData.username">-->
+<!--<br>-->
 
-    <label>Password:</label>
-    <input class="form-control"  type="password" name="password" placeholder="please enter username" ng-model="main.loginData.password">
-    <br>
-    <button class="button button1" type="submit">Login</button>
-    <br>
-    <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-    <br>
-        <div class="reset">
-            <a href="/resetpassword">
-                <button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-danger">Forgot Password</button>
-            </a>
-            <a href="/resetusername">
-                <button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-info">Forgot Username</button>
-            </a>
-        </div>
+<!--<label>Password:</label>-->
+<!--<input class="form-control"  type="password" name="password" placeholder="please enter username" ng-model="main.loginData.password">-->
+<!--<br>-->
+<!--<button class="button button1" type="submit">Login</button>-->
+<!--<br>-->
+<!--<label>-->
+<!--<input type="checkbox" checked="checked" name="remember"> Remember me-->
+<!--</label>-->
+<!--<br>-->
+<!--<div class="reset">-->
+<!--<a href="/resetpassword">-->
+<!--<button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-danger">Forgot Password</button>-->
+<!--</a>-->
+<!--<a href="/resetusername">-->
+<!--<button ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" type="button" class="btn btn-info">Forgot Username</button>-->
+<!--</a>-->
+<!--</div>-->
 
-        <!--<button type="button1" class="cancelbtn">Cancel</button>-->
-        <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
+<!--&lt;!&ndash;<button type="button1" class="cancelbtn">Cancel</button>&ndash;&gt;-->
+<!--&lt;!&ndash;<span class="psw">Forgot <a href="#">password?</a></span>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div class="container">-->
+<!--<ul class="icons">-->
+<!--<li><button type ="button" class="icon fa-facebook" ng-click="main.facebook()"><span class="label">Facebook</span></button></li>-->
+<!--<li><button type ="button"  class="icon fa-twitter"  ng-click="main.twitter()"><span class="label">Twitter</span></button></li>-->
+<!--<li><button type ="button"  class="icon fa-google"  ng-click="main.google()"><span class="label">Google</span></button></li>-->
+<!--</ul></div>-->
+
+<!--<br>-->
+
+<!--<div class="jumbotron text-center" ng-show="main.loading">-->
+<!--<span class="glyphicon glyphicon-repeat spinner"></span>-->
+<!--<p>Loading........</p>-->
+<!--</div>-->
+<!--<br>-->
+
+
+<!--<div clas="row show-hide-message" ng-show="main.successMsg">-->
+<!--<div class="alert alert-success">-->
+<!--{{main.successMsg}}-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<br>-->
+
+<!--<div clas="row show-hide-message" ng-show="main.errorMsg">-->
+<!--<div class="alert alert-danger">-->
+<!--{{main.errorMsg}}-->
+<!--</div>   </div>-->
+
+<!--<div clas="row show-hide-message" ng-show="facebook.errorMsg">-->
+<!--<div class="alert alert-danger">-->
+<!--{{facebook.errorMsg}}-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div clas="row show-hide-message" ng-show="twitter.errorMsg">-->
+<!--<div class="alert alert-danger">-->
+<!--{{twitter.errorMsg}}-->
+<!--</div>-->
+<!--</div>        <div clas="row show-hide-message" ng-show="google.errorMsg">-->
+<!--<div class="alert alert-danger">-->
+<!--{{google.errorMsg}}-->
+<!--</div>-->
+<!--</div>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login V9</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/loginstyle.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+
+<div class="container-login100" style="background-image: url('images/la.jpg');">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30" ng-submit="main.doLogin(loginData)">
+        <form class="login100-form validate-form">
+				<span class="login100-form-title p-b-37">
+					Sign In
+				</span>
+
+            <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
+                <input class="input100"  type="text" name="username" placeholder="please enter username" ng-model="main.loginData.username">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+                <input class="input100"  type="password" name="password" placeholder="please enter username" ng-model="main.loginData.password">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn">
+                    Sign In
+                </button>
+            </div>
+
+            <div class="text-center p-t-57 p-b-20">
+					<span class="txt1">
+						Or login with
+					</span>
+            </div>
+
+            <div class="flex-c p-b-112">
+                <a href="#" class="login100-social-item" ng-click="main.facebook()">
+                    <i class="fa fa-facebook-f"></i>
+                </a>
+
+
+                <a href="#" class="login100-social-item">
+                    <img src="images/icons/icon-google.png" ng-click="main.google()" alt="GOOGLE">
+                </a>
+            </div>
+
+            <div class="text-center">
+                <a href="/register" class="txt2 hov1">
+                    Sign Up
+                </a>
+            </div>
+        </form>
+
+
     </div>
-
-    <div class="container">
-        <ul class="icons">
-            <li><button type ="button" class="icon fa-facebook" ng-click="main.facebook()"><span class="label">Facebook</span></button></li>
-            <li><button type ="button"  class="icon fa-twitter"  ng-click="main.twitter()"><span class="label">Twitter</span></button></li>
-            <li><button type ="button"  class="icon fa-google"  ng-click="main.google()"><span class="label">Google</span></button></li>
-        </ul></div>
-
-<br>
-
-<div class="jumbotron text-center" ng-show="main.loading">
-    <span class="glyphicon glyphicon-repeat spinner"></span>
-    <p>Loading........</p>
 </div>
-<br>
-
-
-<div clas="row show-hide-message" ng-show="main.successMsg">
-    <div class="alert alert-success">
-        {{main.successMsg}}
-    </div>
-</div>
-
-<br>
-
 <div clas="row show-hide-message" ng-show="main.errorMsg">
     <div class="alert alert-danger">
         {{main.errorMsg}}
     </div>   </div>
 
-    <div clas="row show-hide-message" ng-show="facebook.errorMsg">
-        <div class="alert alert-danger">
-            {{facebook.errorMsg}}
-        </div>
+<div clas="row show-hide-message" ng-show="facebook.errorMsg">
+    <div class="alert alert-danger">
+        {{facebook.errorMsg}}
     </div>
-
-        <div clas="row show-hide-message" ng-show="twitter.errorMsg">
-            <div class="alert alert-danger">
-                {{twitter.errorMsg}}
-            </div>
-</div>        <div clas="row show-hide-message" ng-show="google.errorMsg">
-            <div class="alert alert-danger">
-                {{google.errorMsg}}
-            </div>
 </div>
+
+<div clas="row show-hide-message" ng-show="google.errorMsg">
+    <div class="alert alert-danger">
+        {{google.errorMsg}}
+    </div>
+</div>
+
+
+
+<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/bootstrap/js/popper.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/daterangepicker/moment.min.js"></script>
+<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="assets/js/mainlogin.js"></script>
+
+</body>
+</html>

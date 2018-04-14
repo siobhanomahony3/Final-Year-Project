@@ -1,4 +1,5 @@
 var User = require('../models/user')
+var recipe = require('../models/recipe');
 var jwt = require('jsonwebtoken')
 var secret = 'siobhan0303';
 
@@ -14,6 +15,7 @@ module.exports =  function(router){
     user.username = req.body.username
     user.password = req.body.password
     user.email = req.body.email
+
 
     if (req.body.username == null || req.body.username =='' || req.body.password == null || req.body.password =='' || req.body.email == null || req.body.email ==''){
         res.json({
