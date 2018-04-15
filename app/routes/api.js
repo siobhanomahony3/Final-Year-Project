@@ -43,15 +43,6 @@ module.exports =  function(router){
     })
 
 
-    router.get('/profile', isLoggedIn,  function (req, res){
-        recipe.find({User: req.User}, function(err, recipe){
-           if (err){
-               return res.write('Error');
-           }
-
-        });
-       res.render('user/profile');
-    });
 
     router.post('/authenticate', function (req, res) {
         // res.send('testing new route')
