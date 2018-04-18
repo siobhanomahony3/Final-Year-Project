@@ -1,7 +1,6 @@
 angular.module('emailCtrl', ['userServices'])
 
-    .controller('emailCtrl', function($routeParams, User) {
-
+    .controller('emailCtrl', function($routeParams, User, $timeout, $location) {
 
         app = this;
 
@@ -10,9 +9,15 @@ angular.module('emailCtrl', ['userServices'])
          app.errorMsg = false;
 
 if (data.data.success){
-    app.successMsg = data.data.message;
+    app.successMsg = data.data.message + '....Redirecting';
+    $timeout(function(){
+       $location.path('/login');
+    },2000);
 }else{
-    app.errorMsg = data.data.message;
+    app.errorMsg = data.data.message + '....Redirecting';
+    $timeout(function(){
+        $location.path('/login');
+    },2000);;
     }
      });
     });

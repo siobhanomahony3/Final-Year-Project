@@ -162,6 +162,7 @@
                 </a>
             </div>
 
+
             <div class="text-center">
                 <a href="/register" class="txt2 hov1">
                     Sign Up
@@ -172,10 +173,18 @@
 
     </div>
 </div>
-<div clas="row show-hide-message" ng-show="main.errorMsg">
-    <div class="alert alert-danger">
-        {{main.errorMsg}}
-    </div>   </div>
+
+
+<div class="row show-hide-message" ng-show="main.successMsg">
+    <div class="alert alert-success">{{ main.successMsg }}</div>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="main.errorMsg">
+    <div class="alert alert-danger">{{ main.errorMsg }}&nbsp<a href="/resend"><button type="button" class="login100-social-item">Resend Code</button>
+    </div>
+</div>
 
 <div clas="row show-hide-message" ng-show="facebook.errorMsg">
     <div class="alert alert-danger">

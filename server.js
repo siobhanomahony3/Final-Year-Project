@@ -7,6 +7,7 @@ var bodyParser = require('body-parser')
 var router = express.Router()
 var appRoutes = require('./app/routes/api')(router)  //user router object with this route file
 var path = require('path')
+var ejs = require('ejs')
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
@@ -15,7 +16,7 @@ require('./app/passport/passport.js')(passport, FacebookStrategy, TwitterStrateg
 
 // <!-- All Routes -->
 var recipe = require("./app/routes/recipe");
-
+var comment = require("./app/routes/comments");
 
 
 app.use(morgan('dev')); // logs requests eg. "GET /404" or "GET/home 200 in console
@@ -23,6 +24,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+app.set("view engine", "ejs");
 app.use(express.static(__dirname+ '/public'))//give frontend access to the public folder
 app.use('/api', appRoutes);// defining backend routes to differentiate from frontend routes to avoid nameing conflictions
 
@@ -35,6 +37,13 @@ app.delete('/recipe/:id', recipe.deleteRecipe);
 app.put('/recipe/:id/update', recipe.updateRecipe);
 app.put('/recipe/:id/rating', recipe.incrementUpvotes);
 app.put('/recipe/:id/rating', recipe.incrementDownvotes);
+
+
+app.get('/comment', comment.findAllComments);
+app.get('/comment/:id', comment.findOneComment);
+app.post('/addcomment', comment.addComment);
+app.delete('/comment/:id', comment.deleteComment);
+app.put('/comment/:id/rating', comment.incrementUpvotes);
 
 
 

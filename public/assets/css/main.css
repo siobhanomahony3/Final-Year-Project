@@ -86,7 +86,8 @@ input, select, textarea {
   -webkit-appearance: none;
   -ms-appearance: none;
   appearance: none; }
-
+.post-tags { margin-top: 2%; display: inline-block;}
+.tags { margin-top: 2%; display: inline-block;}
 /* Typography */
 html {
   font-size: 13pt; }

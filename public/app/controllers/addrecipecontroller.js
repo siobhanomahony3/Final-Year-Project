@@ -1,21 +1,36 @@
 var app = angular.module('addrecipeController', [])
 
 
-app.controller('addrecipeController',['$scope', '$location', '$http', function($scope, $location, $http){
+app.controller('addrecipeController',['$scope', '$location', '$http', function($scope, $location, $http) {
     $scope.message = 'Recipes Page!';
 
-    $scope.addRecipe = function(addData){
-        $http.post('/addrecipe', addData).success(function(data){
-            $scope.recipes=data;
-            $location.path('/recipes');
+    $scope.addRecipe = function (addData) {
+        $http.post('/addrecipe', addData).success(function (data) {
+            $scope.recipes = data;
+            $location.path('/profile');
             console.log(data);
         })
-            .error(function(data) {
-                console.log('Error: ' +data);
+            .error(function (data) {
+                console.log('Error: ' + data);
 
             });
     };
+
+    // $scope.readURL = function (data) {
+    //     if (data.files && data.files[0]) {
+    //         var reader = new FileReader();
+    //
+    //         reader.onload = function (e) {
+    //             $('#blah')
+    //                 .attr('src', e.target.result)
+    //                 .width(150)
+    //                 .height(200);
+    //         };
+    //
+    //         reader.readAsDataURL(input.files[0]);
+    //     }else{
+    //         console.log('test')
+    //     }
+    // }
 }
-
-
 ]);

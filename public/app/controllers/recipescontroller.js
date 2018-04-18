@@ -1,6 +1,5 @@
 var app = angular.module('recipesController', [])
-
-app.controller('recipesController', ['$scope','$http', function($scope, $http) {
+app.controller('recipesController', ['$scope','$http', function($scope, $http, User) {
     // create a message to display in our view
     $scope.message = 'Recipes Page!';
 

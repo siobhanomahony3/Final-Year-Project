@@ -20,6 +20,11 @@
     <!--</tr>-->
 <!--</table>-->
 <!--</div>-->
+
+<style>
+
+
+</style>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -29,10 +34,6 @@
 <br>
 <br>
 
-
-<% if (currentUser && currentUser.isAdmin) {%>
-<h1> You are an Admin</h1>
-<% } %>
 
 <div class="container">
     <div class="row profile">
@@ -92,7 +93,7 @@
                             <input class="form-control input-text" id="searchbar" ng-model="searchPosts" type="text" placeholder="Search">
                         </div>
                         <!-- Sorting Posts -->
-                        <!-- Sorting Posts -->
+
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SORTED BY
                                 <span class="caret" aria-hidden="true"></span></button>
@@ -103,7 +104,12 @@
                                 <li ng-click="recipename='rating'">
                                     <a>Least Popular</a>
                                 </li>
-
+                                <li ng-click="recipename='-created_at'">
+                                    <a>Newest</a>
+                                </li>
+                                <li ng-click="recipename='created_at'">
+                                    <a>Oldest</a>
+                                </li>
                             </ul>
                         </div>
 
@@ -111,22 +117,50 @@
                             <div class ="row">
 
                                 <table id="rec">
-                                    <tbody ng-repeat="recipe in recipes | orderBy:recipename| filter: searchPosts" class="recipes">
+                                    <tbody ng-repeat="recipe in recipes | orderBy:recipename| filter: searchPosts"  class="recipes">
                                     <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
                                     <tr>
                                         <th>Recipe Name</th>
-                                        <th>Category</th>
-                                        <th>Ingredients</th>
-                                        <!--<th>Rating</th>-->
+                                        <td>
+                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipename}}</span>
+                                        </td>
                                     </tr>
+                                    <tr>
+                                        <th>Category</th>
+                                        <td>
+                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipetype}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ingredients</th>
+                                        <td>
+                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.ingredients}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Created On:</th>
+                                        <td>
+                                            {{ recipe.time_created | date: 'h:mm a on MMMM d, y' }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Created by:</th>
+                                        <td>
+                                            {{main.username}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ingredient Tags:</th>
+                                        <td>
+                                        <br ng-show="recipe.ingredients">
+                                        <div ng-show="recipe.ingredients" class="tags" ng-repeat="value in recipe.ingredients | commaBreak">
+                                            <p class="label label-default">{{ value }}</p>
+                                        </div>
+                                        </td>
+                                    </tr>
+
                                     <td>
-                                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipename}}</span>
-                                    </td>
-                                    <td>
-                                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipetype}}</span>
-                                    </td>
-                                    <td>
-                                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.ingredients}}</span>
+                                        <img src="http://via.placeholder.com/380x200" id="preview-image">
                                     </td>
                                     <!--<td>-->
                                     <!--<span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.rating}}</span>-->
@@ -136,14 +170,22 @@
 
                                         <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
 
+                                        <button type="button" class="btn btn-default" ng-click="donwvote(recipe)">
+                            <span><span class="glyphicon glyphicon-heart" ng-click="incrementDownvotes(recipe._id)"></span>
+                        {{recipe.rating}}</span>
+                                        </button>
 
+                                        <button type="button" class="btn btn-default">
+                                            <a href="#/recipe/{{ recipe._id }}">
+                                                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                                                <span class="sr-only">View All Comments</span>
+                                                <span>{{ recipe.comments.length }}</span>
+                                            </a>
+                                        </button>
 
                                         <button type="button" class="btn btn-default" ng-click="delete(recipe._id)">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
-
-
-
 
                                         <button type="button" class="btn btn-default" ng-click="update(recipe)">
                             <span><span class="glyphicon glyphicon-edit" ng-click="updateRecipe(recipe._id)"></span>
@@ -151,10 +193,7 @@
                                         </button>
 
 
-                                        <button type="button" class="btn btn-default" ng-click="donwvote(recipe)">
-                            <span><span class="glyphicon glyphicon-heart" ng-click="incrementDownvotes(recipe._id)"></span>
-                        {{recipe.rating}}</span>
-                                        </button>
+
 
 
                                         <!--<button type="button" class="btn btn-default" ng-click="upvote(recipe)">-->

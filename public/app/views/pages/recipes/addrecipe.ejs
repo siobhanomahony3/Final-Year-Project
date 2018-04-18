@@ -3,6 +3,15 @@
 <!--</div>-->
     <h1>Add Recipe</h1>
 
+<!--<script>-->
+    <!---->
+
+
+<!--</script>-->
+
+
+
+
     <p>{{ message }}</p>
 
     <div ng-controller="addrecipeController">
@@ -10,6 +19,8 @@
             <div class="col-md-6 col-md-offset-3">
 
                 <form ng-submit="addRecipe(addData)">
+
+
 
                     <div class="col-md-4" ><span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>Name</div>
                     <div class="col-md-8" ><input class="form-control" type="text" name="recipename" placeholder="Please the recipe name" ng-model="addData.recipename" required = "true"></div>
@@ -25,8 +36,12 @@
                     <br><br><br>
 
                     <div class="col-md-4" ><span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>Ingredients</div>
-                    <div class="col-md-8" ><textarea class="form-control"  type="text" name="ingredients"  placeholder="Please enter the recipe ingredients" ng-model="addData.ingredients" required = "true"></textarea></div>
+                    <div class="col-md-8" ><textarea rows="10" cols="10" id="tags" class="form-control"  type="text" name="ingredients"  placeholder="Please enter the recipe ingredients" ng-model="addData.ingredients" required = "true"></textarea></div>
                     <br><br><br>
+                    <input type='file' id="blah" onchange="readURL(data);" />
+                    <img src="#" alt="your image" />
+
+<br><br><br>
                     <div class="col-md-2" ></div><div class="col-md-8" ><button class ="btn btn-primary" type = "submit">Add Recipe </button></div>
                 </form>
                 <br> <br>  <br>

@@ -1,0 +1,46 @@
+<style>
+    #map {
+        height: 400px;
+        margin: 20px 0;
+        border-radius: 5px;
+        border: 1px solid silver;
+    }
+    #innerNav{
+        width: 200px;
+        background-color: #db3236;
+    }
+    #sideNav{
+        width:200px;
+
+
+    }
+    body{
+        background-image: url("https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb");
+    }
+
+    input[type=text] {
+        width: 130px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    input[type=text]:focus {
+        width: 66%;
+    }
+</style>
+<div class="container" ng-controller="googlemapsCtrl as Maps">
+
+
+    <div id="map"></div>
+    <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+        <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+            <!--<label id="names" >{{marker.title}}</label></a>-->
+    </div>
+
+
+</div>

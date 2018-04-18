@@ -18,10 +18,10 @@ app.config(function ($routeProvider, $locationProvider) {
             controller  : 'addrecipeController',
             authenticated: true
         })
-        .when('/about',{
 
-            templateUrl: 'app/views/pages/about.ejs'
-
+        .when('/googleMaps', {
+            templateUrl : 'app/views/pages/recipes/googleMaps.ejs',
+            authenticated: true
         })
 
         .when('/nonuser', {
@@ -44,19 +44,13 @@ app.config(function ($routeProvider, $locationProvider) {
         })
 
         .when('/logout',{
-
             templateUrl: 'app/views/pages/users/logout.ejs',
-            // controller: 'regCtrl',
-            // controllerAs: 'register' //nickname for controller
             authenticated: true
-
-
         })
         .when('/camera',{
 
             templateUrl: 'app/views/pages/recipes/camera.ejs',
             authenticated: true
-
         })
 
         .when('/profile',{
@@ -83,8 +77,6 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'facebookCtrl',
             controllerAs: 'facebook', //nickname for controller,
             authenticated: false
-
-
 
         })
 
