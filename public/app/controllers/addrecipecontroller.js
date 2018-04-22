@@ -1,6 +1,4 @@
 var app = angular.module('addrecipeController', [])
-
-
 app.controller('addrecipeController',['$scope', '$location', '$http', function($scope, $location, $http) {
     $scope.message = 'Recipes Page!';
 
@@ -16,21 +14,5 @@ app.controller('addrecipeController',['$scope', '$location', '$http', function($
             });
     };
 
-    // $scope.readURL = function (data) {
-    //     if (data.files && data.files[0]) {
-    //         var reader = new FileReader();
-    //
-    //         reader.onload = function (e) {
-    //             $('#blah')
-    //                 .attr('src', e.target.result)
-    //                 .width(150)
-    //                 .height(200);
-    //         };
-    //
-    //         reader.readAsDataURL(input.files[0]);
-    //     }else{
-    //         console.log('test')
-    //     }
-    // }
 }
 ]);

@@ -1,4 +1,17 @@
 var app = angular.module('appRoutes',['ngRoute']);
+
+app.service('updateRecipeService', function(){
+    var updateRecipeService = {
+        recipename:'',
+        recipetype:'',
+        ingredients:'',
+        cookingInstructions:'',
+        allergies:'',
+        newRecipe:''
+    };
+    return updateRecipeService;
+});
+
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
 
@@ -7,7 +20,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'app/views/pages/home.ejs'
         })
 
-        .when('/recipes', {
+        .when('/recipes/:id', {
             templateUrl : 'app/views/pages/recipes/recipes.ejs',
             controller  : 'recipesController',
             authenticated: true
@@ -18,6 +31,20 @@ app.config(function ($routeProvider, $locationProvider) {
             controller  : 'addrecipeController',
             authenticated: true
         })
+
+        .when('/shopping', {
+            templateUrl : 'app/views/pages/recipes/shoppingList.ejs',
+            controller  : 'shoppinglistCtrl',
+            authenticated: true
+        })
+
+        .when('/addshoppingList', {
+            templateUrl : 'app/views/pages/recipes/addshoppingList.ejs',
+            controller  : 'addShoppingList',
+            authenticated: true
+        })
+
+
 
         .when('/googleMaps', {
             templateUrl : 'app/views/pages/recipes/googleMaps.ejs',

@@ -7,16 +7,6 @@ var mongoose = require('mongoose');
 var result = require("mongoose");
 
 
-mongoose.connect('mongodb://localhost:27017/recipes');
-
-var db = mongoose.connection;
-
-db.on('error', function (err) {
-    console.log('connection error', err);
-});
-db.once('open', function () {
-    console.log('connected to database');
-});
 
 router.findAll = function(req, res) {
     recipe.find(function(err, recipes) {
@@ -93,6 +83,8 @@ router.addRecipe = function(req, res) {
     recipes.recipename = req.body.recipename;
     recipes.recipetype = req.body.recipetype;
     recipes.ingredients = req.body.ingredients;
+    recipes.cookingInstructions = req.body.cookingInstructions;
+    recipes.dietaryRestrictions = req.body.dietaryRestrictions;
     recipes.rating = req.body.rating;
 
 
@@ -125,6 +117,8 @@ router.updateRecipe = function(req, res) {
         else {
             recipes.recipename = req.body.recipename;
             recipes.recipetype = req.body.recipetype;
+            recipes.ingredients = req.body.ingredients;
+            recipes.cookingInstructions = req.body.ingredients;
             recipes.ingredients = req.body.ingredients;
             recipes.save(function (err) {
                 if (err)

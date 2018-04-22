@@ -1,34 +1,16 @@
-
-
-<!--<div class = 'page-header'>-->
-    <!--<h1>{{main.username}}'s  Profile</h1>-->
-<!--</div>-->
-
-<!--<div class ="panel panel-info">-->
-<!--<div class ="panel-heading" style="text-align: center;"><strong>User Profile</strong></div>-->
-<!--<table id="rec">-->
-    <!--<tr>-->
-        <!--<td><strong> Username</strong></td>-->
-        <!--<td><strong> Email </strong></td>-->
-        <!--<td><strong> Password </strong></td>-->
-
-    <!--</tr>-->
-    <!--<tr>-->
-        <!--<td>{{main.username}}</td>-->
-        <!--<td>{{main.useremail}}</td>-->
-        <!--<td>{{main.password}}</td>-->
-    <!--</tr>-->
-<!--</table>-->
-<!--</div>-->
-
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 
+    .dropdown { margin-bottom: 2% !important;}
 
+    .dropdown-menu a { color: #333 !important;}
+
+    .dropdown-menu a:hover, .dropdown-menu a:active { color: #ec00ae !important;}
 </style>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
+<script></script>
 
 <br>
 <br>
@@ -70,9 +52,9 @@
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li class="active">
-                            <a href="#">
+                            <a href="/addrecipe">
                                 <i class="glyphicon glyphicon-home"></i>
-                                Overview </a>
+                                Add Recipe</a>
                         </li>
                         <li>
                             <a href="#">
@@ -90,7 +72,7 @@
                     <table align="center" valign="middle">
                         <!-- Searching Posts -->
                         <div class="form-group search-bar">
-                            <input class="form-control input-text" id="searchbar" ng-model="searchPosts" type="text" placeholder="Search">
+                            <input class="form-control input-text" id="searchbar" ng-model="searchRecipes" type="text" placeholder="Search">
                         </div>
                         <!-- Sorting Posts -->
 
@@ -112,9 +94,6 @@
                                 </li>
                             </ul>
                         </div>
-
-                        <div class ="col-md-12">
-                            <div class ="row">
 
                                 <table id="rec">
                                     <tbody ng-repeat="recipe in recipes | orderBy:recipename| filter: searchPosts"  class="recipes">
@@ -138,6 +117,18 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <th>Cooking Instructions</th>
+                                        <td>
+                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.cookingInstructions}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Dietary Restrictions</th>
+                                        <td>
+                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.dietaryRestrictions}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th>Created On:</th>
                                         <td>
                                             {{ recipe.time_created | date: 'h:mm a on MMMM d, y' }}
@@ -150,7 +141,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Ingredient Tags:</th>
+                                        <th>Ingredient:</th>
                                         <td>
                                         <br ng-show="recipe.ingredients">
                                         <div ng-show="recipe.ingredients" class="tags" ng-repeat="value in recipe.ingredients | commaBreak">
@@ -170,10 +161,24 @@
 
                                         <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
 
+
+
+                                        <button type="button" class="btn btn-default" ng-click="delete(recipe._id)">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+
+
+                                        <button type="button" class="btn btn-default" ng-click="update(recipe)">
+                            <span><span class="glyphicon glyphicon-edit" ng-click="updateRecipe(recipe._id)"></span>
+                        {{recipe.update}}</span>
+                                        </button>
+
+
                                         <button type="button" class="btn btn-default" ng-click="donwvote(recipe)">
                             <span><span class="glyphicon glyphicon-heart" ng-click="incrementDownvotes(recipe._id)"></span>
                         {{recipe.rating}}</span>
                                         </button>
+
 
                                         <button type="button" class="btn btn-default">
                                             <a href="#/recipe/{{ recipe._id }}">
@@ -182,18 +187,6 @@
                                                 <span>{{ recipe.comments.length }}</span>
                                             </a>
                                         </button>
-
-                                        <button type="button" class="btn btn-default" ng-click="delete(recipe._id)">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-
-                                        <button type="button" class="btn btn-default" ng-click="update(recipe)">
-                            <span><span class="glyphicon glyphicon-edit" ng-click="updateRecipe(recipe._id)"></span>
-                        {{recipe.update}}</span>
-                                        </button>
-
-
-
 
 
                                         <!--<button type="button" class="btn btn-default" ng-click="upvote(recipe)">-->

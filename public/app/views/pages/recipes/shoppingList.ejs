@@ -1,0 +1,148 @@
+<br>
+<br>
+<br>
+<!-- Heading -->
+<div class="page-header">
+    <h1>Shopping List</h1>
+</div>
+<div ng-controller="shoppinglistCtrl as list">
+    <!-- Heading -->
+
+    <br>
+
+    <!-- Loading Icon (Bootstrap) -->
+    <div class="jumbotron text-center" ng-show="shoppingList.loading">
+        <span class="glyphicon glyphicon-repeat spinner"></span>
+        <p>Loading....</p>
+    </div>
+    <!-- Loading Icon (Bootstrap) -->
+
+    <!-- User Management Table -->
+    <div class="panel panel-primary">
+        <!-- Heading -->
+        <div class="panel-heading">
+            <a href="/addshoppingList">
+                <i class="glyphicon glyphicon-home"></i>
+                Add Shopping List Here</a>
+        </div>
+        <div class="panel panel-primary">
+            <!-- Heading -->
+            <div class="panel-heading">
+                <strong>User Management</strong>
+            </div>
+        <!-- Start: Table -->
+        <table class="table">
+            <tbody ng-repeat="shoppingList in shoppingLists | orderBy:item1| filter: searchPosts" class="shoppingList">
+            <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item1}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item2}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item3}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item4}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item5}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item6}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item7}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item8}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item9}}</span>
+                </td>
+            </tr><tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item10}}</span>
+                </td>
+            </tr><tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item11}}</span>
+                </td>
+            </tr><tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item12}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item13}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item14}}</span>
+                </td>
+            </tr>
+            <tr>
+                <th>List item:</th>
+                <td>
+                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{shoppingList.item15}}</span>
+                </td>
+            </tr>
+            <tr>
+            <td>
+            <button type="button"  class="btn btn-danger" ng-click="delete(shoppingList._id)">Delete</button>
+            </td>
+            </tr>
+        </table>
+    </div>
+    <!-- User Management Table -->
+
+    <br>
+    <br>
+
+
+    <div class="row show-hide-message" ng-show="reservation.successMsg">
+        <div class="alert alert-danger">{{ reservation.successMsg }}</div>
+    </div>
+    <!-- Custom Error Message -->
+    <div class="row show-hide-message" ng-show="reservation.showMoreError">
+        <div class="alert alert-danger">{{ reservation.showMoreError }}</div>
+    </div>
+</div>
+
+
+
+

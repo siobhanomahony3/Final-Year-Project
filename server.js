@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3001
 var morgan = require('morgan')// <------Middleware------->
 var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
@@ -17,6 +17,8 @@ require('./app/passport/passport.js')(passport, FacebookStrategy, TwitterStrateg
 // <!-- All Routes -->
 var recipe = require("./app/routes/recipe");
 var comment = require("./app/routes/comments");
+var shoppingList = require("./app/routes/shoppingList");
+
 
 
 app.use(morgan('dev')); // logs requests eg. "GET /404" or "GET/home 200 in console
@@ -34,10 +36,14 @@ app.get('/recipe', recipe.findAll);
 app.get('/recipe/:id', recipe.findOne);
 app.post('/addrecipe', recipe.addRecipe);
 app.delete('/recipe/:id', recipe.deleteRecipe);
-app.put('/recipe/:id/update', recipe.updateRecipe);
+app.put('/recipe/:id', recipe.updateRecipe);
 app.put('/recipe/:id/rating', recipe.incrementUpvotes);
 app.put('/recipe/:id/rating', recipe.incrementDownvotes);
 
+app.get('/shoppingList', shoppingList.findAll);
+app.get('/shoppingList/:id', shoppingList.findOne);
+app.post('/addshoppingList', shoppingList.addShoppingList);
+app.delete('/shoppingList/:id', shoppingList.deleteShoppingList);
 
 app.get('/comment', comment.findAllComments);
 app.get('/comment/:id', comment.findOneComment);
@@ -49,14 +55,18 @@ app.put('/comment/:id/rating', comment.incrementUpvotes);
 
 
 
-mongoose.connect('mongodb://localhost:27017/appdb', function(err){
-    if (err){
-        console.log('Not connected to the db' + err)
-    } else {
+mongoose.connect('mongodb://Admin:aghadine3@ds151169.mlab.com:51169/recipes');
+   var db = mongoose.connection;
+    db.on('error', function (err) {
+        console.log('Not connected to the db' , err)
+    });
+
+    db.once('open', function () {
+
         console.log('Successfully Connected to the db')
 
-    }
-});
+    });
+
 
 
 app.get('*',function (req,res) {

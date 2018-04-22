@@ -1812,7 +1812,7 @@ ul.icons {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  background-image: url("../../images/banner.jpg");
+  background-image: url("../../images/pizza.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2394,7 +2394,7 @@ body {
   padding-top: 3.25rem; }
   body:before {
     content: ' ';
-    background-image: url(../../images/bg.jpg);
+    background-image: url(../../images/pizza.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -50,7 +50,6 @@ app.controller('recipesController', ['$scope','$http', function($scope, $http, U
         }
     };
 
-
     $scope.current = {};
 
     $scope.update = function (recipe) {

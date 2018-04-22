@@ -25,6 +25,9 @@
     <script src="app/controllers/addrecipecontroller.js"></script>
     <script src="app/controllers/emailCtrl.js"></script>
     <script src="app/controllers/googlemapsCtrl.js"></script>
+    <script src="app/controllers/addShoppingList.js"></script>
+    <script src="app/controllers/shoppinglistCtrl.js"></script>
+
 
 
     <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyCVWnhRNDHQUQsOXWMKDaRVUp6dduvgwag&libraries=places'></script>
@@ -38,9 +41,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--<link rel="stylesheet" type="text/css" href="assets/css/animate.css">-->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="assets/css/one-page-wonder.min.css">-->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.cc">
+
+
 
 
 
@@ -94,6 +98,8 @@
         <li><a ng-show ="main.isLoggedIn" href="/nonuser">Recipes</a></li>
         <li><a ng-show ="main.isLoggedIn" href="/camera">Camera</a></li>
         <li><a ng-show ="main.isLoggedIn" href="/googleMaps">Locate Nearest Store</a></li>
+        <li><a ng-show ="main.isLoggedIn" href="/shopping">Shopping List</a></li>
+
         <li><a ng-show ="main.isLoggedIn" href="#" ng-click="main.logout()">Log Out</a></li>
     </ul>
 </nav>
@@ -137,9 +143,6 @@
                 </ul>
             </section>
         </div>
-        <div class="copyright">
-            &copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
-        </div>
     </div>
 </footer>
 
@@ -149,6 +152,8 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
 </body>
 
 </html>

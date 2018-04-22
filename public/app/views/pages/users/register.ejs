@@ -1,21 +1,48 @@
-<br>
-<br>
-<br>
-<br>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/loginstyle.css">
+    <!--===============================================================================================-->
+</head>
+<body>
 <div class="page-header">
     <h1>User Registration</h1>
 </div>
-
-<form name="regForm" ng-submit="register.regUser(regData, regForm.$valid);" novalidate>
+<div class="container-login100" style="background-image: url('images/chicken.jpg');">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+<form class="login100-form validate-form" name="regForm" ng-submit="register.regUser(regData, regForm.$valid);" novalidate>
+    <span class="login100-form-title p-b-37">
+					Register
+				</span>
     <div ng-class="{'has-success':(regForm.name.$valid && !regForm.name.$pristine), 'has-error':(!regForm.name.$valid && !regForm.name.$pristine) || (!regForm.name.$valid && regForm.$submitted) }">
 
         <label>Name:</label>
         <input class="form-control" type="text" name="name", placeholder="please enter name address" ng-model="register.regData.name" ng-pattern="/^(([a-zA-Z]{3,25})+[ ]+([a-zA-Z]{3,25})+)+$/" ng-minlength="3" ng-maxlength="25" required>
         <p class="help-block" ng-show="(!regForm.name.$pristine && regForm.name.$error.required) || (regForm.$submitted && regForm.name.$error.required)">This field is required</p>
         <ul ng-show="(!regForm.name.$pristine && regForm.name.$error.pattern) || (!regForm.name.$pristine && regForm.name.$error.minlength) || (!regForm.name.$pristine && regForm.name.$error.maxlength)" class="help-block">
-            <li> Must have a space in between first and last name</li>
+            <li>Must have a space in between first and last name</li>
             <li>Must not contain any special characters</li>
             <li>Must not contain any numbers</li>
             <li>Must be at least 3 characters but no more than 25</li>
@@ -32,7 +59,6 @@
         <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) || (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="help-block">
         <li>Must contain "@"</li>
         <li>Must not contain any special characters</li>
-        <li>Must be at least 3 characters but no more than 35</li>
     </ul>
     </div>
     <br>
@@ -76,18 +102,17 @@
         <p class="help-block" ng-show="!confirmed && !regForm.confirmPassword.$pristine && regForm.firstPassword.$valid">Passwords do not match</p>
     </div>
 
-   <br>
-<div class="form-group">
-    <label>Admin Code:</label>
-    <input class="form-control" type="text" name="adminCode" placeholder="Admin Code">
-</div>
-    <br>
 
+<br>
+    <div class="container-login100-form-btn">
+    <button class="login100-form-btn" type="submit">Register</button>
+    </div>
 
-    <button class="btn btn-primary" type="submit">Register</button>
 </form>
 
 
+</div>
+</div>
 
 <div class="jumbotron text-center" ng-show="register.loading">
     <span class="glyphicon glyphicon-repeat spinner"></span>
@@ -109,3 +134,24 @@
         {{register.errorMsg}}
     </div>
 </div>
+
+
+<!--===============================================================================================-->
+<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/bootstrap/js/popper.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/daterangepicker/moment.min.js"></script>
+<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="assets/js/mainlogin.js"></script>
+
+</body>
+</html>
