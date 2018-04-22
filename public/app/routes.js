@@ -44,7 +44,15 @@ app.config(function ($routeProvider, $locationProvider) {
             authenticated: true
         })
 
+        .when('/management',{
 
+            templateUrl: 'app/views/pages/management/management.ejs',
+            controller: 'managementCtrl',
+            controllerAs: 'management',
+            authenticated: true,
+            permission: ['admin', 'moderator']
+
+        })
 
         .when('/googleMaps', {
             templateUrl : 'app/views/pages/recipes/googleMaps.ejs',
@@ -177,13 +185,23 @@ app.config(function ($routeProvider, $locationProvider) {
 
 })
 
-app.run(['$rootScope', 'Auth', '$location' ,function ($rootScope, Auth, $location) {
+app.run(['$rootScope', 'Auth', '$location','User' ,function ($rootScope, Auth, $location, User) {
     $rootScope.$on('$routeChangeStart',  function (event, next, current) {
 
         if(next.$$route.authenticated == true){
             if(!Auth.isLoggedIn()){
                 event.preventDefault();
                 $location.path('/')
+            }else if (next.$$route.permission) {
+                User.getPermission().then(function (data) {
+                    if (next.$$route.permission[0] !== data.data.permission){
+                        if (next.$$route.permission[1] !== data.data.permission){
+                            event.preventDefault();
+                            $location.path('/');
+                        }
+                    }
+
+                });
             }
 
         }else if (next.$$route.authenticated == false){

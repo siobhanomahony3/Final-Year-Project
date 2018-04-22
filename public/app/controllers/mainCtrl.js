@@ -1,7 +1,7 @@
-angular.module('mainController', ['authServices'])
+angular.module('mainController', ['authServices', 'userServices'])
 
 
-.controller('mainCtrl', function (Auth, $timeout, $location,$rootScope, $window) {
+.controller('mainCtrl', function (Auth, $timeout, $location,$rootScope, $window, User) {
     var app = this;
 
     app.loadme = false;
@@ -14,10 +14,18 @@ angular.module('mainController', ['authServices'])
                 // console.log(data.data.username)
                 app.username=data.data.username
                 app.useremail=data.data.email
-                app.loadme = true;
-            })
-        }
-        else {
+
+                User.getPermission().then(function (data) {
+                    if(data.data.permission === 'admin'){
+                        app.authorized = true;
+                        app.loadme = true;
+                    }  else{
+                        app.loadme = true;
+
+                    }
+                });
+            });
+        } else {
             // console.log('Failure: User is not logged in')
             app.isLoggedIn = false;
             app.username= ''
@@ -28,6 +36,7 @@ angular.module('mainController', ['authServices'])
             $location.hash(null)
         }
     })
+
 
 
     this.facebook = function () {

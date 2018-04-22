@@ -3,11 +3,17 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 
-    .dropdown { margin-bottom: 2% !important;}
+    .dropdown {
+        margin-bottom: 2% !important;
+    }
 
-    .dropdown-menu a { color: #333 !important;}
+    .dropdown-menu a {
+        color: #333 !important;
+    }
 
-    .dropdown-menu a:hover, .dropdown-menu a:active { color: #ec00ae !important;}
+    .dropdown-menu a:hover, .dropdown-menu a:active {
+        color: #ec00ae !important;
+    }
 </style>
 
 <script></script>
@@ -23,7 +29,7 @@
             <div class="profile-sidebar">
                 <div class="profile-userpic">
                     <center>
-                    <img src="./images/people.png" alt="Avatar" class="avatar" weight="280px" height="170px">
+                        <img src="./images/people.png" alt="Avatar" class="avatar" weight="280px" height="170px">
                     </center>
                     <br>
                     <br>
@@ -41,10 +47,10 @@
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
                 <center>
-                <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-success btn-sm">Follow</button>
-                    <button type="button" class="btn btn-danger btn-sm">Message</button>
-                </div>
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-success btn-sm">Follow</button>
+                        <button type="button" class="btn btn-danger btn-sm">Message</button>
+                    </div>
                 </center>
                 <br>
                 <!-- END SIDEBAR BUTTONS -->
@@ -56,11 +62,6 @@
                                 <i class="glyphicon glyphicon-home"></i>
                                 Add Recipe</a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-user"></i>
-                                Account Settings </a>
-                        </li>
                     </ul>
                 </div>
                 <!-- END MENU -->
@@ -70,14 +71,16 @@
             <div class="profile-content">
                 <div ng-controller="recipesController as list">
                     <table align="center" valign="middle">
-                        <!-- Searching Posts -->
+
                         <div class="form-group search-bar">
-                            <input class="form-control input-text" id="searchbar" ng-model="searchRecipes" type="text" placeholder="Search">
+                            <input class="form-control input-text" id="searchbar" ng-model="searchPosts" type="text"
+                                   placeholder="Search">
                         </div>
                         <!-- Sorting Posts -->
 
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SORTED BY
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SORTED
+                                BY
                                 <span class="caret" aria-hidden="true"></span></button>
                             <ul class="dropdown-menu">
                                 <li ng-click="recipename='-rating'">
@@ -95,191 +98,181 @@
                             </ul>
                         </div>
 
-                                <table id="rec">
-                                    <tbody ng-repeat="recipe in recipes | orderBy:recipename| filter: searchPosts"  class="recipes">
-                                    <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
-                                    <tr>
-                                        <th>Recipe Name</th>
-                                        <td>
-                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipename}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Category</th>
-                                        <td>
-                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipetype}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Ingredients</th>
-                                        <td>
-                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.ingredients}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Cooking Instructions</th>
-                                        <td>
-                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.cookingInstructions}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Dietary Restrictions</th>
-                                        <td>
-                                            <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.dietaryRestrictions}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Created On:</th>
-                                        <td>
-                                            {{ recipe.time_created | date: 'h:mm a on MMMM d, y' }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Created by:</th>
-                                        <td>
-                                            {{main.username}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Ingredient:</th>
-                                        <td>
-                                        <br ng-show="recipe.ingredients">
-                                        <div ng-show="recipe.ingredients" class="tags" ng-repeat="value in recipe.ingredients | commaBreak">
-                                            <p class="label label-default">{{ value }}</p>
-                                        </div>
-                                        </td>
-                                    </tr>
-
-                                    <td>
-                                        <img src="http://via.placeholder.com/380x200" id="preview-image">
-                                    </td>
-                                    <!--<td>-->
-                                    <!--<span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.rating}}</span>-->
-                                    <!--</td>-->
-
-                                    <td>
-
-                                        <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
+                        <table id="rec">
+                            <tbody ng-repeat="recipe in recipes | orderBy:recipename| filter: searchPosts"
+                                   class="recipes">
+                            <tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign=" middle
+                            "; >
+                            <tr>
+                                <th>Recipe Name</th>
+                                <td>
+                                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="
+                                          middle";>{{recipe.recipename}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Category</th>
+                                <td>
+                                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="
+                                          middle";>{{recipe.recipetype}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Ingredients</th>
+                                <td>
+                                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="
+                                          middle";>{{recipe.ingredients}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Cooking Instructions</th>
+                                <td>
+                                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="
+                                          middle";>{{recipe.cookingInstructions}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Dietary Restrictions</th>
+                                <td>
+                                    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="
+                                          middle";>{{recipe.allergies}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Created On:</th>
+                                <td>
+                                    {{ recipe.time_created | date: 'h:mm a on MMMM d, y' }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Created by:</th>
+                                <td>
+                                    {{main.username}}
+                                </td>
+                            </tr>
 
 
-
-                                        <button type="button" class="btn btn-default" ng-click="delete(recipe._id)">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-
-
-                                        <button type="button" class="btn btn-default" ng-click="update(recipe)">
-                            <span><span class="glyphicon glyphicon-edit" ng-click="updateRecipe(recipe._id)"></span>
-                        {{recipe.update}}</span>
-                                        </button>
+                            <td>
+                                <img src="http://via.placeholder.com/380x200" id="preview-image">
+                            </td>
 
 
-                                        <button type="button" class="btn btn-default" ng-click="donwvote(recipe)">
-                            <span><span class="glyphicon glyphicon-heart" ng-click="incrementDownvotes(recipe._id)"></span>
+                            <td>
+
+                                <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="
+                                      middle";>
+
+                                <button type="button"  class="btn btn-danger" ng-click="delete(recipe._id)">Delete</button>
+
+                                <button type="button" class="btn btn-danger" ng-click="update(recipe)">
+                                    <span ng-click="updateRecipe(recipe._id)"></span>
+                                    {{recipe.update}}Update</button>
+
+                                <button type="button"  class="btn btn-danger" ng-click="incrementUpvotes(recipe._id)">Like</button>
+
+
+                                <button type="button" class="btn btn-default" ng-click="downvote(recipe)">
+                            <span ng-click="incrementDownvotes(recipe._id)"></span>
                         {{recipe.rating}}</span>
-                                        </button>
+                                </button>
 
 
-                                        <button type="button" class="btn btn-default">
-                                            <a href="#/recipe/{{ recipe._id }}">
-                                                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                                                <span class="sr-only">View All Comments</span>
-                                                <span>{{ recipe.comments.length }}</span>
-                                            </a>
-                                        </button>
+                                <!--<button type="button" class="btn btn-default">-->
+                                <!--<a href="#/recipe/{{ recipe._id }}">-->
+                                <!--<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>-->
+                                <!--<span class="sr-only">View All Comments</span>-->
+                                <!--<span>{{ recipe.comments.length }}</span>-->
+                                <!--</a>-->
+                                <!--</button>-->
 
 
-                                        <!--<button type="button" class="btn btn-default" ng-click="upvote(recipe)">-->
-                                        <!--<span class="glyphicon glyphicon-heart"></span>-->
-                                        <!--</button>-->
-                                        <!---->
-                                        <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(donation._id)"></span>-->
-                                        <!--{{donation.upvotes}}-->
+                                </button>
 
-                                        </button>
+                                <tr>
 
-                                        <tr>
+                                    <td>
+                                        <input type="text" id="ingredients" ng-model="current.ingredients"
+                                               value="{{current.ingredients}}"/>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="ingredients" ng-model="current.cookingInstructions"
+                                               value="{{current.cookingInstructions}}"/>
+                                    </td>
 
-                                            <td>
-                                                <input type="tel" id="recipename" ng-model="current.recipename" value="{{current.recipename}}"/>
-                                            </td>
-                                            <td>
-                                                <input type="tel" id="recipetype" ng-model="current.recipetype" value="{{current.recipetype}}"/>
-                                            </td>
-                                            <td>
-                                                <input type="tel" id="ingredients" ng-model="current.ingredients" value="{{current.ingredients}}"/>
-                                            </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button ng-click="save(current._id)">Save</button>
+                                    </td>
+                                </tr>
+                </div>
 
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <button ng-click="save(current._id)">Save</button>
-                                            </td>
-                                        </tr>
+                <div id="myModalEdit" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Edit This User</h4>
                             </div>
-
-                            <div id="myModalEdit" class="modal fade" role="dialog">
-                                <div class="modal-dialog">
-
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Edit This User</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form class="form-horizontal">
-                                                <div class="form-group">
-                                                    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Username" ng-model="clickedUser.username">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Email" ng-model="clickedUser.email">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Full Name" ng-model="clickedUser.fullName">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Username" ng-model="clickedUser.username">
                                         </div>
                                     </div>
 
-                                </div>
-                            </div>
-                            </span>
-                            </td>
-                            </tr>
-                        </div>
-                    </table>
-                    <br>
-                    <br>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3" placeholder="Email"
+                                                   ng-model="clickedUser.email">
+                                        </div>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Full Name" ng-model="clickedUser.fullName">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Done
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+                </span>
+                </td>
+                </tr>
             </div>
+            </table>
+            <br>
+            <br>
+
         </div>
-        </table>
-        </html>
     </div>
-        </div>
-    </div>
+</div>
+</table>
+</html>
+</div>
+</div>
+</div>
 </div>
 

@@ -310,6 +310,18 @@ module.exports =  function(router){
     return router; //returns route to the server when accessed
 
 
+    router.get('/permission',  function (req, res) {
+        User.findOne({username: req.decoded.username}, function (err, user) {
+            if (err) throw err;
+            if (!user) {
+                res.json({ success: false, message: "No user was found"});
+            } else {
+                res.json({ success: true, permission: user.permission});
+            }
 
+        });
+
+
+    });
 
 }

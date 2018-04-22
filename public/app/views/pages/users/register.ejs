@@ -54,7 +54,7 @@
         <label>Email:</label>
         <input class="form-control" type="text" name="email", placeholder="please enter email address" ng-model="register.regData.email" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" ng-minlength="3" ng-maxlength="35" ng-blur="register.checkEmail(regData);" required>
         <p class="help-block" ng-show="(!regForm.email.$pristine && regForm.email.$error.required) || (regForm.$submitted && regForm.email.$error.required)">This field is required</p>
-        <span ng-show="register.checkingEmail" class="glyphicon glyphicon-refresh"> <p class="help-block" ng-show="register.emailMsg && !regForm.email.$error.required && regForm.username.$valid">{{register.emailMsg}}</p>
+        <span ng-show="register.checkingEmail" class="glyphicon glyphicon-refresh"> <p class="help-block" ng-show="register.emailMsg && !regForm.email.$error.required && regForm.username.$valid">{{register.emailMsg}}</p></span>
 
         <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) || (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="help-block">
         <li>Must contain "@"</li>

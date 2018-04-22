@@ -21,6 +21,9 @@ angular.module('userServices', [])
         userFactory.activeAccount = function(token){
             return $http.put('/api/activate/' + token);
         }
+        userFactory.getPermission = function () {
+            return $http.get('/api/permission');
+        }
 
         return userFactory;
     })

@@ -1,0 +1,181 @@
+
+<!--<div class="page-header">-->
+<!--<h1>Hello {{main.username}} from about route</h1>-->
+<!--</div>-->
+
+<h1>List All Recipes</h1>
+
+<p>{{ message }}</p>
+
+<div ng-controller="recipesController as list">
+<table align="center" valign="middle">
+<!-- Searching Posts -->
+<div class="form-group search-bar">
+<input class="form-control input-text" id="searchbar" ng-model="searchPosts" type="text" placeholder="Search">
+</div>
+<!-- Sorting Posts -->
+<!-- Sorting Posts -->
+<div class="dropdown">
+<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SORTED BY
+<span class="caret" aria-hidden="true"></span></button>
+<ul class="dropdown-menu">
+<li ng-click="recipename='-rating'">
+<a>Most Popular</a>
+</li>
+<li ng-click="recipename='rating'">
+<a>Least Popular</a>
+</li>
+
+</ul>
+</div>
+
+
+
+
+
+<div class ="col-md-12">
+<div class ="row">
+
+<table class="table">
+<tbody ng-repeat="recipe in recipes | orderBy:recipename| filter: searchPosts" class="recipes">
+<tr style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle"; >
+<tr>
+<th>Recipe Name</th>
+<th>Category</th>
+<th>Ingredients</th>
+<!--<th>Rating</th>-->
+</tr>
+<td>
+<span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipename}}</span>
+</td>
+<td>
+<span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.recipetype}}</span>
+</td>
+<td>
+<span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.ingredients}}</span>
+</td>
+<td>
+    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.cookingInstructions}}</span>
+</td>
+<td>
+    <span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.allergies}}</span>
+</td>
+<!--<td>-->
+<!--<span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>{{recipe.rating}}</span>-->
+<!--</td>-->
+
+<td>
+
+<span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>
+
+
+<button type="button" class="btn btn-default" ng-click="delete(recipe._id)">
+<span class="glyphicon glyphicon-trash"></span>
+</button>
+
+
+<button type="button" class="btn btn-default" ng-click="update(recipe)">
+<span><span class="glyphicon glyphicon-edit" ng-click="updateRecipe(recipe._id)"></span>
+{{recipe.update}}</span>
+</button>
+
+
+<button type="button" class="btn btn-default" ng-click="donwvote(recipe)">
+<span><span class="glyphicon glyphicon-heart" ng-click="incrementDownvotes(recipe._id)"></span>
+{{recipe.rating}}</span>
+</button>
+
+
+<!--<button type="button" class="btn btn-default" ng-click="upvote(recipe)">-->
+<!--<span class="glyphicon glyphicon-heart"></span>-->
+<!--</button>-->
+<!---->
+<!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(donation._id)"></span>-->
+<!--{{donation.upvotes}}-->
+
+
+
+
+</button>
+
+
+<tr>
+
+<td>
+<input type="tel" id="recipename" ng-model="current.recipename" value="{{current.recipename}}"/>
+</td>
+<td>
+<input type="tel" id="recipetype" ng-model="current.recipetype" value="{{current.recipetype}}"/>
+</td>
+<td>
+<input type="tel" id="ingredients" ng-model="current.ingredients" value="{{current.ingredients}}"/>
+</td>
+
+</tr>
+<tr>
+<td>
+<button ng-click="save(current._id)">Save</button>
+</td>
+</tr>
+</div>
+
+<div id="myModalEdit" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Edit This User</h4>
+</div>
+<div class="modal-body">
+<form class="form-horizontal">
+<div class="form-group">
+<label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="inputEmail3" placeholder="Username" ng-model="clickedUser.username">
+</div>
+</div>
+
+<div class="form-group">
+<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="inputEmail3" placeholder="Email" ng-model="clickedUser.email">
+</div>
+</div>
+
+<div class="form-group">
+<label for="inputEmail3" class="col-sm-2 control-label">Full Name</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="inputEmail3" placeholder="Full Name" ng-model="clickedUser.fullName">
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-10">
+<button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+</div>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>
+</span>
+</td>
+</tr>
+</tbody></div>
+</table>
+<br>
+<br>
+
+</div>
+</div>
+</div>
+<!--</table>-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->

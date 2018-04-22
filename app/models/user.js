@@ -66,8 +66,8 @@ var UserSchema = new Schema({
     password: { type: String, required: true, validate: passwordValidator, select: false},
     email: { type: String, required: true, lowercase: true, unique: true, validate: emailValidator},
     active: { type: Boolean, required:true, default:false},
-    temporarytoken: {type: String, required: true},
-    time_created: {type: Date, default: Date.now}
+    permission: {type: String, required: true, default: 'user'}
+
 });
 
 // Middleware to ensure password is encrypted before saving user to database
