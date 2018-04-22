@@ -26,7 +26,6 @@
     "fs": "0.0.1-security",
     "geocoder": "^0.2.3",
     "jsonwebtoken": "^8.1.0",
-    "locus": "^2.0.1",
     "method-override": "^2.3.5",
     "moment": "^2.17.1",
     "mongoose": "^4.13.6",
