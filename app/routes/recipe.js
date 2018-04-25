@@ -119,7 +119,7 @@ router.updateRecipe = function(req, res) {
             recipes.recipetype = req.body.recipetype;
             recipes.ingredients = req.body.ingredients;
             recipes.cookingInstructions = req.body.ingredients;
-            recipes.ingredients = req.body.ingredients;
+            recipes.allergies = req.body.allergies;
             recipes.save(function (err) {
                 if (err)
                     res.send(err);
